@@ -1,9 +1,6 @@
 <?php
     require 'GatewayBL.php';
-    require '../actor/ActorBL.php';
     class GatewayService{
-        private $actorDTO;
-        private $actorBL;
         private $usuarioDTO;
         private $usuarioBL;
         private $gatewayDTO;
@@ -13,7 +10,7 @@
             $this->gatewayDTO = new GatewayDTO;
         }
 
-        public function actor()
+        public function usuario()
     
         $datos_post = http_build_query(
             array(
@@ -35,10 +32,10 @@
         $resultado = file_get_contents('http://localhost/UsuarioService.php', false, $contexto);
 
 
-        public function Read($TOKEN, $Id) {
-            if(($this->usuarioDTO = $this->usuarioBL->AUTH($TOKEN)) == true) {
-            $this->actorDTO = $this->actorBL->Read($Id);
-            echo json_encode($this->actorDTO, JSON_PRETTY_PRINT);
+        public function Read($Id) {
+            if(($this->usuarioDTO = $this->usuarioBL->AUTH($username)) == true) {
+            $this->usuarioDTO = $this->usuarioBL->Read($Id);
+            echo json_encode($this->usuarioDTO, JSON_PRETTY_PRINT);
             }
         }
     }
