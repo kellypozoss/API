@@ -34,7 +34,7 @@
 
         public function Read($Id) {
             if(($this->usuarioDTO = $this->usuarioBL->AUTH($username)) == true) {
-            $this->usuarioDTO = $this->usuarioBL->Read($Id);
+            $this->usuarioDTO = $this->usuarioBL->Read($id);
             echo json_encode($this->usuarioDTO, JSON_PRETTY_PRINT);
             }
         }
