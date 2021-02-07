@@ -3,12 +3,12 @@
     class GatewayBL{
 
 
-        public function AUTH($token){
+        public function AUTH($username){
             $this->conn->OpenConnection();
                 $connsql = $this->conn->GetConnection();
                 $confirmacion = false;
                 $usuarioDTO = new UsuarioDTO();
-                $sqlQuery = "SELECT * FROM usuario WHERE token = '{$token}'";
+                $sqlQuery = "SELECT * FROM usuario WHERE username = '{$username}'";
     
                 try {
                     if($connsql) {
