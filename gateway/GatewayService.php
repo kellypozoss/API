@@ -32,7 +32,7 @@
         $resultado = file_get_contents('http://localhost/UsuarioService.php', false, $contexto);
 
 
-        public function Read($Id) {
+        public function Read($id) {
             if(($this->usuarioDTO = $this->usuarioBL->AUTH($username)) == true) {
             $this->usuarioDTO = $this->usuarioBL->Read($id);
             echo json_encode($this->usuarioDTO, JSON_PRETTY_PRINT);
